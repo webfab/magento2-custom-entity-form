@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Custom Product Request</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="page.main.actions">
+            <block name="order-back-link" template="Webfab_CustomProduct::back-link.phtml" before="-"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Webfab\CustomProduct\Block\Adminhtml\View" name="customproduct_request.view"
+                   template="Webfab_CustomProduct::view.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

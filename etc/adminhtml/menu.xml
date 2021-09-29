@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Webfab_CustomProduct::customproduct" title="Produits personnalisés" module="Webfab_CustomProduct"
+             parent="Magento_Backend::novap_top_level" resource="Magento_Backend::content"/>
+        <add id="Webfab_CustomProduct::customproduct_demandes_listing"
+             title="Listing des Demandes"
+             module="Webfab_CustomProduct"
+             sortOrder="1"
+             resource="Magento_Backend::content"
+             parent="Webfab_CustomProduct::customproduct"
+             action="customproduct/customproduct"
+        />
+    </menu>
+</config>

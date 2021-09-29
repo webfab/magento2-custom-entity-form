@@ -1,0 +1,30 @@
+<!--@subject {{var subject}} @-->
+{{template config_path="design/email/header_template"}}
+
+
+<strong style="text-transform: uppercase">{{var subject}}</strong><br><br>
+
+<p><strong>{{trans "Summary of the request"}}</strong></p>
+
+{{if product_type}}
+<p><label>{{trans "Type de produits à personnaliser"}} :</label> <span>{{var product_type}}</span></p>
+{{/if}}
+
+{{if lastname}}
+<p><label>{{trans "Name"}} :</label> <span>{{var firstname}} {{var lastname}}</span></p>
+{{/if}}
+
+{{if email}}
+<p><label>{{trans "Email"}} :</label> <span>{{var email}}</span></p>
+{{/if}}
+
+{{if phone}}
+<p><label>{{trans "Phone"}} :</label> <span>{{var phone}}</span></p>
+{{/if}}
+
+{{if message}}
+<p><label>{{trans "Message"}} :</label> <p>{{var message}}</p></p>
+{{/if}}
+
+{{template config_path="design/email/footer_template"}}
+

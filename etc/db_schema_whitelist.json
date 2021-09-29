@@ -1,0 +1,18 @@
+{
+  "custom_product_request": {
+    "column": {
+      "request_id": true,
+      "civilities": true,
+      "firstname": true,
+      "lastname": true,
+      "phone": true,
+      "email": true,
+      "product_type": true,
+      "message": true,
+      "created_at": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

@@ -1,0 +1,120 @@
+<?php
+/** @var Webfab\CustomProduct\Block\Form $block */
+$postedData = $block->getPostedValue();
+?>
+<div class="container">
+
+    <form class="form contact"
+          action="<?= $this->getUrl('*/*/post') ?>"
+          id="contact-form"
+          method="post"
+          enctype="multipart/form-data"
+          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+          data-mage-init='{"validation":{}}'>
+
+
+        <div class="field civilities required">
+
+            <div class="control">
+                <input type="radio" class="radio required-entry" name="civilities"
+                       data-validate="{'validate-one-required-by-name':true}" value="Mme">Mme<br>
+                <input type="radio" class="radio required-entry" name="civilities"
+                       data-validate="{'validate-one-required-by-name':true}" value="M">M
+            </div>
+        </div>
+
+        <div class="field firstname required">
+            <label class="label" for="firstname"><span><?= $block->escapeHtml(__('Prénom')) ?></span></label>
+            <div class="control">
+                <input name="firstname" id="firstname" title="<?= $block->escapeHtmlAttr(__('Prénom')) ?>"
+                       value=""
+                       class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field lastname required">
+            <label class="label" for="lastname"><span><?= $block->escapeHtml(__('Nom')) ?></span></label>
+            <div class="control">
+                <input name="lastname" id="lastname" title="<?= $block->escapeHtmlAttr(__('Nom')) ?>"
+                       value=""
+                       class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+
+
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                       value=""
+                       class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="field phone required">
+            <label class="label" for="phone"><span><?= $block->escapeHtml(__('Phone Number')) ?></span></label>
+            <div class="control">
+                <input name="phone" id="phone" title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>"
+                       value=""
+                       class="input-text" type="text" data-validate="{required:true, 'validate-phoneLax':true}"/>
+            </div>
+        </div>
+
+        <div class="field product_type required">
+
+            <label class="label" for="product_type"><span><?php /* @escapeNotVerified */
+                    echo __('Type de produits à personnaliser') ?></span></label>
+            <select name="product_type" id="product_type">
+                <option value="selected"><?php /* @escapeNotVerified */
+                    echo __('Votre choix...') ?></option>
+                <option name="panneaux" value="Panneaux">Panneaux</option>
+                <option name="plaquettes_de_portes" value="plaquettes_de_portes">Plaquettes de portes</option>
+                <option name="chevalet_de_signalisation" value="chevalet_de_signalisation">Chevalet de signalisation
+                </option>
+                <option name="poteaux_a_angle" value="poteaux_a_angle">Poteaux à sangle</option>
+            </select>
+
+        </div>
+
+        <div class="field message">
+            <label class="label"
+                   for="message"><span><?= $block->escapeHtml(__('Description de votre souhait')) ?></span></label>
+            <div class="control">
+
+                       <textarea name="message" id="message" class="input-text" cols="5"
+                                 rows="3"></textarea>
+            </div>
+        </div>
+
+
+        <?php
+        $url_policy = '/gpd';
+        ?>
+        <div class="field agreement">
+            <div class="control">
+                <label for="contact-agreement">
+                    <input name="agreement" type="checkbox" id="contact-agreement" data-validate="{required:true}"/>
+                    <?= /** @noEscape */
+                    __("Je consens au traitement de mes données, conformément à la %1 politique de confidentialité et la protection des données%2", '<a href="' . $url_policy . '" target="_blank">', '</a>') ?>
+                </label>
+            </div>
+        </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="hidden" name="hideit" id="hideit" value=""/>
+                <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>"
+                        class="action submit primary clas-button-arrow-white">
+                    <?= $block->escapeHtml(__('Envoyer')) ?>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Gardenders_CustomProduct/js/form": {}
+        }
+    }
+
+
+</script>

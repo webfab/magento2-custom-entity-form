@@ -1,0 +1,59 @@
+<?php /** @var $block Webfab\CustomProduct\Block\Adminhtml\View */ ?>
+<?php
+$product_request = $block->getCustomProductRequest();
+?>
+
+<div class="admin__page-section-item order-information">
+    <div class="admin__page-section-item-title">
+                <span class="title">
+                    <?= __('Demande de produits personnalisés') ?> #<?= /** @noEscape */
+                    $product_request->getId() ?>
+                </span>
+    </div>
+    <div class="admin__page-section-item-content">
+        <table class="admin__table-secondary order-information-table">
+            <tbody>
+            <tr>
+                <th><?= __('Date') ?></th>
+                <td><?= /** @noEscape */
+                    $block->getFormatedDate() ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Civilités') ?></th>
+                <td><?= /** @noEscape */
+                    $product_request->getCivilities() ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Firstname') ?></th>
+                <td><?= /** @noEscape */
+                    $product_request->getFirstname() ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Lastname') ?></th>
+                <td><?= /** @noEscape */
+                    $product_request->getLastname() ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Phone') ?></th>
+                <td><?= /** @noEscape */
+                    $product_request->getPhone() ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Email') ?></th>
+                <td><?= /** @noEscape */
+                    $product_request->getEmail() ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Product Type') ?></th>
+                <td><?= /** @noEscape */
+                    $block->getProductType() ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Message') ?></th>
+                <td><?= /** @noEscape */
+                    $product_request->getMessage() ?></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

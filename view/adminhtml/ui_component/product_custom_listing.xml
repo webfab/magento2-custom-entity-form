@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">product_custom_listing.custom_product_request_listing_data_source
+            </item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>product_custom_listing_columns</spinner>
+        <deps>
+            <dep>product_custom_listing.custom_product_request_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="custom_product_request_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">request_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <dataProvider class="CustomProductGridDataProvider" name="custom_product_request_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>request_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <paging name="listing_paging"/>
+
+        <filters name="listing_filters"/>
+
+        <exportButton name="export_button"/>
+    </listingToolbar>
+    <columns name="product_custom_listing_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>request_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="request_id">
+            <settings>
+                <label>ID</label>
+                <filter>textRange</filter>
+                <sorting>desc</sorting>
+                <draggable>false</draggable>
+            </settings>
+        </column>
+        <column name="firstname">
+            <settings>
+                <label>Firstname</label>
+                <filter>text</filter>
+                <draggable>false</draggable>
+            </settings>
+        </column>
+        <column name="lastname">
+            <settings>
+                <label>Lastname</label>
+                <filter>text</filter>
+                <draggable>false</draggable>
+            </settings>
+        </column>
+        <column name="email">
+            <settings>
+                <label>Email</label>
+                <filter>text</filter>
+                <draggable>false</draggable>
+            </settings>
+        </column>
+        <column name="phone">
+            <settings>
+                <label>Phone</label>
+                <filter>text</filter>
+                <draggable>false</draggable>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Webfab\CustomProduct\Ui\Component\Listing\Column\ContactActions"/>
+        <actionsColumn name="view" class="Webfab\CustomProduct\Ui\Component\Listing\Column\ViewActions"/>
+    </columns>
+</listing>
